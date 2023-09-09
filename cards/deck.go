@@ -21,9 +21,14 @@ func newDeck() deck {
 	return cards
 }
 
-// Allows any deck to have access to this function
+// Prints each card in a deck
 func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
 	}
+}
+
+// Deals a hand, returning it and the remaining deck
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
 }
