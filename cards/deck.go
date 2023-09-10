@@ -37,10 +37,12 @@ func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
+// Converts a deck to a comma delimited string
 func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
 }
 
+// Saves a deck to a file with the given name
 func (d deck) saveToFile(filename string) error {
 	return os.WriteFile(filename, []byte(d.toString()), 0666)
 }
